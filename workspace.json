@@ -16,8 +16,7 @@
           "options": {
             "outputPath": "dist/apps/books",
             "main": "apps/books/src/main.ts",
-            "tsConfig": "apps/books/tsconfig.app.json",
-            "assets": ["apps/books/src/assets"]
+            "tsConfig": "apps/books/tsconfig.app.json"
           },
           "configurations": {
             "production": {
