@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  books:
+    build: .
+    command: npm start books
+  gateway:
+    build: .
+    command: npm start gateway
+    ports:
+      - 3000:3000
+    depends_on:
+      - books
