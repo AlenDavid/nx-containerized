@@ -4,10 +4,20 @@ services:
   books:
     build: .
     command: npm start books
+    volumes:
+      - ./:/app
+  authors:
+    build: .
+    command: npm start authors
+    volumes:
+      - ./:/app
   gateway:
     build: .
     command: npm start gateway
+    volumes:
+      - ./:/app
     ports:
       - 3000:3000
     depends_on:
       - books
+      - authors

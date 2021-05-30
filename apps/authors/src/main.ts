@@ -7,34 +7,34 @@ import { buildFederatedSchema } from '@apollo/federation';
 const typeDefs = gql`
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
-  # This "Book" type defines the queryable fields for every book in our data source.
-  type Book {
+  # This "Author" type defines the queryable fields for every author in our data source.
+  type Author {
     id: ID!
-    title: String
+    name: String
   }
 
   # The "Query" type is special: it lists all of the available queries that
   # clients can execute, along with the return type for each. In this
-  # case, the "books" query returns an array of zero or more Books (defined above).
+  # case, the "authors" query returns an array of zero or more Authors (defined above).
   type Query {
-    books: [Book]
+    authors: [Author]
   }
 `;
-const books = [
+const authors = [
     {
         id: "1",
-        title: 'The Awakening'
+        name: 'Kate Chopin',
     },
     {
         id: "2",
-        title: 'City of Glass'
+        name: 'Paul Auster',
     },
 ];
 // Resolvers define the technique for fetching the types defined in the
-// schema. This resolver retrieves books from the "books" array above.
+// schema. This resolver retrieves authors from the "authors" array above.
 const resolvers = {
     Query: {
-        books: () => books,
+        authors: () => authors,
     },
 };
 // The ApolloServer constructor requires two parameters: your schema

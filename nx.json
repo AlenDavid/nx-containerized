@@ -24,6 +24,9 @@
     },
     "gateway": {
       "tags": []
+    },
+    "authors": {
+      "tags": []
     }
   }
 }

@@ -102,6 +102,55 @@
           }
         }
       }
+    },
+    "authors": {
+      "root": "apps/authors",
+      "sourceRoot": "apps/authors/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/authors",
+            "main": "apps/authors/src/main.ts",
+            "tsConfig": "apps/authors/tsconfig.app.json"
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/authors/src/environments/environment.ts",
+                  "with": "apps/authors/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "authors:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/authors/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/authors"],
+          "options": {
+            "jestConfig": "apps/authors/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

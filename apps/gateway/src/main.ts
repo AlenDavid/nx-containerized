@@ -6,6 +6,7 @@ import { ApolloGateway } from '@apollo/gateway';
 const gateway = new ApolloGateway({
     serviceList: [
         { name: 'books', url: 'http://books:4000' },
+        { name: 'authors', url: 'http://authors:4000' },
         // Define additional services here
     ],
 });
